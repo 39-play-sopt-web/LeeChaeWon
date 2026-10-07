@@ -1,0 +1,11 @@
+:root {
+  /* 색상 토큰 */
+  --color-primary: #F9D86D;
+  --color-secondary: #FFF3C4;
+
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+
+  --color-text: #292524;
+  --color-text-muted: #64748b;
+}
