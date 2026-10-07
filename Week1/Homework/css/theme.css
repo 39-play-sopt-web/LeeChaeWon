@@ -8,4 +8,6 @@
 
   --color-text: #292524;
   --color-text-muted: #64748b;
+
+  --color-shadow: rgba(0, 0, 0, 0.1);
 }
