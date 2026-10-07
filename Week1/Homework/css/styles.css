@@ -32,3 +32,40 @@ body {
 .header__social i {
   font-size: 3rem;
 }
+
+main {
+  display: flex;
+  padding: 8rem 3rem 0;
+}
+
+.sidebar {
+  position: sticky;
+  top: 3rem;
+  width: 10rem;
+  background-color: var(--color-surface);
+  border-radius: 1rem;
+}
+
+.sidebar ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar a {
+  display: block;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 1rem;
+}
+
+.sidebar a:hover {
+  background-color: var(--color-secondary);
+}
+
+.sidebar li:first-child a {
+  border-radius: 1rem 1rem 0 0;
+}
+
+.sidebar li:last-child a {
+  border-radius: 0 0 1rem 1rem;
+}
