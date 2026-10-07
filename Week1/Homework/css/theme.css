@@ -2,12 +2,11 @@
   /* 색상 토큰 */
   --color-primary: #F9D86D;
   --color-secondary: #FFF3C4;
+  --color-background: #FFFBEA;
+  --color-surface: #FFFFFF;
 
-  --color-background: #f8fafc;
-  --color-surface: #ffffff;
-
-  --color-text: #292524;
-  --color-text-muted: #64748b;
+  --color-text: #4A3F35;
+  --color-text-muted: #8A7A6A;
 
   --color-shadow: rgba(0, 0, 0, 0.1);
 }
