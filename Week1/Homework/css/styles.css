@@ -238,3 +238,17 @@ section {
 .interests__button--dislike:hover {
   background-color: var(--color-secondary);
 }
+
+.messages__content {
+  padding: 1rem;
+  background-color: var(--color-surface);
+  border-radius: 1rem;
+}
+
+#messages p::before {
+    content: "♥ ";
+}
+
+#messages p::after {
+    content: " ♥";
+}
