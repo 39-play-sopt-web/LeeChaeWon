@@ -1,0 +1,48 @@
+.photo-dump__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 14rem);
+  grid-template-areas:
+      "a b c c"
+      "d d d e"
+      "d d d f";
+  gap: 1rem;
+}
+
+.photo-dump__item--a {
+  grid-area: a;
+}
+
+.photo-dump__item--b {
+  grid-area: b;
+}
+
+.photo-dump__item--c {
+  grid-area: c;
+}
+
+.photo-dump__item--d {
+  grid-area: d;
+}
+
+.photo-dump__item--e {
+  grid-area: e;
+}
+
+.photo-dump__item--f {
+  grid-area: f;
+}
+
+.photo-dump__item {
+  overflow: hidden;
+}
+
+.photo-dump__item img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.photo-dump__item:hover img {
+  transform: scale(1.1);
+}

@@ -1,0 +1,28 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  background-color: var(--color-primary);
+  z-index: 1000;
+}
+
+.header__profile {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: box-shadow 0.2s ease;
+}
+
+.header__profile:hover {
+  box-shadow: 0 0.25rem 0.75rem var(--color-shadow);
+}
+
+.header__social i {
+  font-size: 3rem;
+}
