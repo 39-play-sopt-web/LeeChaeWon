@@ -1,7 +1,7 @@
 .messages__content {
   padding: 1rem;
   background-color: var(--color-surface);
-  border-radius: 1rem;
+  border-radius: var(--radius-lg);
 }
 
 .messages__content p::before {

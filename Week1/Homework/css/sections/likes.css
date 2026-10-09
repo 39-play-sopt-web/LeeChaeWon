@@ -19,6 +19,7 @@
   flex: 0 0 15rem;
   height: 15rem;
   object-fit: cover;
+  border-radius: var(--radius-md);
   transition: transform 0.3s ease;
 }
 

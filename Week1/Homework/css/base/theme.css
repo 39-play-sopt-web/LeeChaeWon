@@ -4,9 +4,13 @@
   --color-secondary: #FFF3C4;
   --color-background: #FFFBEA;
   --color-surface: #FFFFFF;
-
   --color-text: #4A3F35;
   --color-text-muted: #8A7A6A;
-
   --color-shadow: rgba(0, 0, 0, 0.1);
+
+  /* radius 토큰 */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
 }
