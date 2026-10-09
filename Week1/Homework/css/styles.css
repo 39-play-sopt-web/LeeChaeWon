@@ -35,7 +35,7 @@ body {
 
 .layout {
   display: flex;
-  padding: 8rem 3rem 0;
+  padding: 8rem 3rem 3rem;
   gap: 4rem;
   align-items: flex-start;
 }
@@ -73,7 +73,11 @@ body {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
   flex: 1;
+  min-width: 0;
+  gap: 4rem;
 }
 
 section {
@@ -129,4 +133,42 @@ section {
 
 .photo-dump__item:hover img {
     transform: scale(1.1);
+}
+
+.likes__banner {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.likes__track {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  animation: likes-slide 20s linear infinite;
+}
+
+.likes__track:hover {
+  animation-play-state: paused;
+}
+
+.likes__track img {
+  flex: 0 0 15rem;
+  height: 15rem;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.likes__track img:hover {
+  transform: scale(1.05);
+}
+
+@keyframes likes-slide {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50%));
+  }
 }
