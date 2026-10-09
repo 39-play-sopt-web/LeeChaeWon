@@ -252,3 +252,9 @@ section {
 #messages p::after {
     content: " ♥";
 }
+
+.footer {
+  padding: 2rem;
+  text-align: center;
+  background-color: var(--color-primary);
+}
