@@ -85,6 +85,7 @@ section {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  scroll-margin-top: 7rem;
 }
 
 .photo-dump__grid {
