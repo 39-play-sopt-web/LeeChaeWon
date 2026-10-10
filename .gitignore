@@ -1,0 +1,15 @@
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Cache
+.vite/
+
+# Environment variables
+.env
+.env.*
+!.env.example
