@@ -1,5 +1,10 @@
-const Search = ({search, onSearchChange}) => {
-  return <input type='text' value={search} onChange={onSearchChange} />;
+const Search = ({search, onSearchChange, onSearchClick}) => {
+  return (
+    <div>
+      <input type='text' value={search} onChange={onSearchChange} />
+      <button onClick={onSearchClick}>검색</button>
+    </div>
+  );
 };
 
-export default Search;
+export default Search;[]
