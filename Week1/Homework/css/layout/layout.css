@@ -1,0 +1,26 @@
+:root {
+  --header-height: 6rem;
+  --header-gap: 2rem; /* 헤더와 콘텐츠 사이 여백 */
+}
+
+.layout {
+  display: flex;
+  padding: calc(var(--header-height) + var(--header-gap)) 3rem 3rem;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.layout__main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  gap: 4rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  scroll-margin-top: calc(var(--header-height) + var(--header-gap));
+}

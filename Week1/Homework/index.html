@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <title>PLAY SOPT 1주차 과제</title>
+    </head>
+    <body>
+        <!--헤더 영역-->
+        <header class="header">
+            <img src="./images/header/header-profile.webp" alt="헤더 프로필 사진" class="header__profile">
+            <h1 class="header__title">채원이의 블로그</h1>
+            <a href="https://github.com/chaewon41" class="header__social" aria-label="GitHub 프로필">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+            </a>
+        </header>
+
+        <div class="layout">
+            <!--사이드바 영역-->
+            <nav class="sidebar">
+                <ul>
+                    <li><a href="#photo-dump">포토덤프</a></li>
+                    <li><a href="#likes">좋아하는 것</a></li>
+                    <li><a href="#interests">내 관심사</a></li>
+                    <li><a href="#messages">To.웹토리</a></li>
+                </ul>
+            </nav>
+
+            <!--메인 컨텐츠 영역-->
+            <main class="layout__main">
+                <!--포토 덤프 섹션-->
+                <section id="photo-dump" class="section">
+                    <h2>포토 덤프</h2>
+                    <div class="photo-dump__grid">
+                        <div class="photo-dump__item photo-dump__item--a">
+                            <img src="./images/photo-dump/photo-dump-01.webp" alt="몽마르트 언덕">
+                        </div>
+
+                        <div class="photo-dump__item photo-dump__item--b">
+                            <img src="./images/photo-dump/photo-dump-02.webp" alt="젤라또">
+                        </div>
+
+                        <div class="photo-dump__item photo-dump__item--c">
+                            <img src="./images/photo-dump/photo-dump-03.webp" alt="베르사유 궁전">
+                        </div>
+
+                        <div class="photo-dump__item photo-dump__item--d">
+                            <img src="./images/photo-dump/photo-dump-04.webp" alt="스위스에서 찍은 사진">
+                        </div>
+
+                        <div class="photo-dump__item photo-dump__item--e">
+                            <img src="./images/photo-dump/photo-dump-05.webp" alt="뤽상부르 공원">
+                        </div>
+
+                        <div class="photo-dump__item photo-dump__item--f">
+                            <img src="./images/photo-dump/photo-dump-06.webp" alt="체스키 크룸로프">
+                        </div>
+                    </div>
+                </section>
+
+                <!--사진첩 섹션-->
+                <section id="likes" class="section">
+                    <h2>좋아하는 것: 실바니안</h2>
+                    <div class="likes__banner">
+                        <div class="likes__track">
+                            <img src="./images/likes/likes-01.webp" alt="토끼 실바니안" />
+                            <img src="./images/likes/likes-02.webp" alt="후드 실바니안" />
+                            <img src="./images/likes/likes-03.webp" alt="수저 든 실바니안" />
+                            <img src="./images/likes/likes-04.webp" alt="빗질하는 실바니안" />
+                            <img src="./images/likes/likes-05.webp" alt="강아지 실바니안" />
+                            <img src="./images/likes/likes-06.webp" alt="실바니안 광각 사진" />
+                            <img src="./images/likes/likes-07.webp" alt="모자 쓴 실바니안" />
+
+                            <!--무한 루프를 위한 사진 복제-->
+                            <img src="./images/likes/likes-01.webp" alt="" aria-hidden="true"/>
+                            <img src="./images/likes/likes-02.webp" alt="" aria-hidden="true" />
+                            <img src="./images/likes/likes-03.webp" alt="" aria-hidden="true" />
+                            <img src="./images/likes/likes-04.webp" alt="" aria-hidden="true" />
+                            <img src="./images/likes/likes-05.webp" alt="" aria-hidden="true" />
+                            <img src="./images/likes/likes-06.webp" alt="" aria-hidden="true" />
+                            <img src="./images/likes/likes-07.webp" alt="" aria-hidden="true" />
+                        </div>
+                    </div>
+                </section>
+
+                <!--관심사 섹션-->
+                <section id="interests" class="section">
+                    <h2>내 관심사</h2>
+                    <ul class="interests__list">
+                        <li class="interests__item">
+                            <img src="./images/interests/interests-01.webp" alt="야구" class="interests__image">
+                            <h3 class="interests__name">야구</h3>
+                            <div class="interests__actions">
+                                <button type="button" class="interests__button interests__button--like" aria-label="야구 좋아요">좋아요</button>
+                                <button type="button" class="interests__button interests__button--dislike" aria-label="야구 싫어요">싫어요</button>
+                            </div>
+                        </li>
+
+                        <li class="interests__item">
+                            <img src="./images/interests/interests-02.webp" alt="독서" class="interests__image">
+                            <h3 class="interests__name">독서</h3>
+                            <div class="interests__actions">
+                                <button type="button" class="interests__button interests__button--like" aria-label="독서 좋아요">좋아요</button>
+                                <button type="button" class="interests__button interests__button--dislike" aria-label="독서 싫어요">싫어요</button>
+                            </div>
+                        </li>
+
+                        <li class="interests__item">
+                            <img src="./images/interests/interests-03.webp" alt="여행" class="interests__image">
+                            <h3 class="interests__name">여행</h3>
+                            <div class="interests__actions">
+                                <button type="button" class="interests__button interests__button--like" aria-label="여행 좋아요">좋아요</button>
+                                <button type="button" class="interests__button interests__button--dislike" aria-label="여행 싫어요">싫어요</button>
+                            </div>
+                        </li>
+
+                        <li class="interests__item">
+                            <img src="./images/interests/interests-04.webp" alt="콘서트" class="interests__image">
+                            <h3 class="interests__name">콘서트</h3>
+                            <div class="interests__actions">
+                                <button type="button" class="interests__button interests__button--like" aria-label="콘서트 좋아요">좋아요</button>
+                                <button type="button" class="interests__button interests__button--dislike" aria-label="콘서트 싫어요">싫어요</button>
+                            </div>
+                        </li>
+
+                        <li class="interests__item">
+                            <img src="./images/interests/interests-05.webp" alt="젤라또" class="interests__image">
+                            <h3 class="interests__name">젤라또</h3>
+                            <div class="interests__actions">
+                                <button type="button" class="interests__button interests__button--like" aria-label="젤라또 좋아요">좋아요</button>
+                                <button type="button" class="interests__button interests__button--dislike" aria-label="젤라또 싫어요">싫어요</button>
+                            </div>
+                        </li>
+                        
+                        <li class="interests__item">
+                            <img src="./images/interests/interests-06.webp" alt="강아지" class="interests__image">
+                            <h3 class="interests__name">강아지</h3>
+                            <div class="interests__actions">
+                                <button type="button" class="interests__button interests__button--like" aria-label="강아지 좋아요">좋아요</button>
+                                <button type="button" class="interests__button interests__button--dislike" aria-label="강아지 싫어요">싫어요</button>
+                            </div>
+                        </li>
+                        
+                        <li class="interests__item">
+                            <img src="./images/interests/interests-07.webp" alt="돌바니안" class="interests__image">
+                            <h3 class="interests__name">돌바니안</h3>
+                            <div class="interests__actions">
+                                <button type="button" class="interests__button interests__button--like" aria-label="돌바니안 좋아요">좋아요</button>
+                                <button type="button" class="interests__button interests__button--dislike" aria-label="돌바니안 싫어요">싫어요</button>
+                            </div>
+                        </li>                      
+                    </ul>
+                </section>
+
+                <!--to 웹토리 섹션-->
+                <section id="messages" class="section">
+                    <h2>To.웹토리</h2>
+                    <div class="messages__content">
+                        <p>웹토리들 잘 부탁드립니당</p>
+                        <p>같이 열심히 하자!!!!!!</p>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <footer class="footer">
+            <p>1주차 과제 끝 ~~ 신난다 ~~</p>
+        </footer>
+    </body>
+</html>
