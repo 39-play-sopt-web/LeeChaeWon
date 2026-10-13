@@ -1,9 +1,17 @@
-function App() {
+import { useState } from 'react';
+import Header from '@/shared/components/header';
+
+const App = () => {
+  const [currentPage, setCurrentPage] = useState('game');
+
   return (
-    <h1 className="text-heading-01 text-primary">
-      Tailwind CSS 적용 확인
-    </h1>
+    <>
+      <Header
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
+    </>
   );
-}
+};
 
 export default App;
