@@ -40,7 +40,6 @@ const Header = ({ currentPage, setCurrentPage, level, setLevel, elapsedTime }) =
               value={level}
               onChange={(event) => setLevel(Number(event.target.value))}
               className="rounded-md bg-primary p-2 text-body-01 text-text-primary"
-              defaultValue="easy"
             >
               <option value={1}>Level 1 (3x3)</option>
               <option value={2}>Level 2 (4x4)</option>
