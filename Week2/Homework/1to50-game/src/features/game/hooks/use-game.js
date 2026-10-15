@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { GAME_CONFIG } from '../constants/game-config';
 import createNumbers from '../utils/create-numbers';
 
-const useGame = (level, startTimer, stopTimer) => { 
+const useGame = (level, startTimer, stopTimer, resetTimer) => { 
   const { gridSize, maxNumber } = GAME_CONFIG[level];
 
   const [nextNumber, setNextNumber] = useState(1);
@@ -14,6 +14,13 @@ const useGame = (level, startTimer, stopTimer) => {
   const [remainingNumbers, setRemainingNumbers] = useState(() =>
     createNumbers(gridSize * gridSize +1, maxNumber),
   );
+
+  const resetGame = () => {
+    setNextNumber(1);
+    setNumbers(createNumbers(1, gridSize * gridSize));
+    setRemainingNumbers(createNumbers(gridSize*gridSize + 1, maxNumber));
+    resetTimer();
+  }
 
   const handleGameComplete = () => {
       const finalTime = stopTimer();
@@ -37,6 +44,7 @@ const useGame = (level, startTimer, stopTimer) => {
 
       setTimeout(() => {
         alert(`게임 완료!\n플레이 시간: ${(finalTime / 1000).toFixed(2)}초`);
+        resetGame();
       }, 0);
   };
 

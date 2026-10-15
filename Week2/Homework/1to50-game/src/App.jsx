@@ -27,6 +27,7 @@ const App = () => {
           level={level}
           startTimer={startTimer}
           stopTimer={stopTimer}
+          resetTimer={resetTimer}
         />
       )}
     </>

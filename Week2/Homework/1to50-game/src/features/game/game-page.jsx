@@ -1,14 +1,14 @@
 import GameBoard from './components/game-board';
 import useGame from './hooks/use-game';
 
-const GamePage = ({ level, startTimer, stopTimer }) => {
+const GamePage = ({ level, startTimer, stopTimer, resetTimer }) => {
   const {
     gridSize,
     maxNumber,
     nextNumber,
     numbers,
     handleNumberClick,
-  } = useGame(level, startTimer, stopTimer)
+  } = useGame(level, startTimer, stopTimer, resetTimer)
 
   return (
     <main className="mx-auto flex w-full max-w-xl flex-col items-center gap-6 px-4 py-8">
