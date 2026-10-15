@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Header from '@/shared/components/header';
+import GamePage from './features/game/game-page';
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState('game');
@@ -13,6 +14,8 @@ const App = () => {
         level={level}
         setLevel={setLevel}
       />
+
+      {currentPage === 'game' && <GamePage key={level} level={level} />}
     </>
   );
 };
