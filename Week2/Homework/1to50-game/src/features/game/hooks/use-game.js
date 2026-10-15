@@ -15,6 +15,9 @@ const useGame = (level, startTimer, stopTimer, resetTimer) => {
     createNumbers(gridSize * gridSize +1, maxNumber),
   );
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [finalTime, setFinalTime] = useState(0);
+
   const resetGame = () => {
     setNextNumber(1);
     setNumbers(createNumbers(1, gridSize * gridSize));
@@ -23,12 +26,15 @@ const useGame = (level, startTimer, stopTimer, resetTimer) => {
   }
 
   const handleGameComplete = () => {
-      const finalTime = stopTimer();
+      const completedTime = stopTimer();
+
+      setFinalTime(completedTime);
+      setIsModalOpen(true);
 
       const record = {
         playedAt: new Date().toISOString(),
         level,
-        playTime: finalTime,
+        playTime: completedTime,
       };
 
       // 기존 기록 가져오기
@@ -42,10 +48,10 @@ const useGame = (level, startTimer, stopTimer, resetTimer) => {
         JSON.stringify([...savedRecords, record]),
       );
 
-      setTimeout(() => {
+    /* setTimeout(() => {
         alert(`게임 완료!\n플레이 시간: ${(finalTime / 1000).toFixed(2)}초`);
         resetGame();
-      }, 0);
+      }, 0); */
   };
 
   const handleNumberClick = (number) => {
@@ -92,6 +98,10 @@ const useGame = (level, startTimer, stopTimer, resetTimer) => {
     nextNumber,
     numbers,
     handleNumberClick,
+    isModalOpen,
+    finalTime,
+    closeModal: () => setIsModalOpen(false),
+    resetGame,
   };
 };
 
