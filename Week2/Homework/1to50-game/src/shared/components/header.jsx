@@ -1,4 +1,4 @@
-const Header = ({ currentPage, setCurrentPage, level, setLevel }) => {
+const Header = ({ currentPage, setCurrentPage, level, setLevel, elapsedTime }) => {
   return (
     <header className="flex items-center justify-between border-b border-border bg-secondary px-8 py-4">
       {/* 왼쪽 제목 */}
@@ -48,8 +48,8 @@ const Header = ({ currentPage, setCurrentPage, level, setLevel }) => {
             </select>
 
             {/* 타이머 */}
-            <div className="rounded-md bg-primary p-2 text-body-01 text-text-primary">
-              타이머 표시 영역
+            <div className="w-20 text-center rounded-md bg-primary p-2 text-body-01 text-text-primary">
+              {(elapsedTime / 1000).toFixed(2)}
             </div>
           </div>
         )}

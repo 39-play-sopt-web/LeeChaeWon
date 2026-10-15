@@ -3,7 +3,7 @@ import GameBoard from './components/game-board';
 import { GAME_CONFIG } from './constants/game-config';
 import createNumbers from './utils/create-numbers';
 
-const GamePage = ({ level }) => {
+const GamePage = ({ level, startTimer, stopTimer }) => {
   const { gridSize, maxNumber } = GAME_CONFIG[level];
 
   const [nextNumber, setNextNumber] = useState(1);
@@ -21,6 +21,14 @@ const GamePage = ({ level }) => {
       return;
     }
 
+    if (number === 1) {
+      startTimer();
+    }
+
+    if (number === maxNumber) {
+      stopTimer();
+    }
+    
     // 새로 등장시킬 숫자가 남아 있다면
     if (remainingNumbers.length > 0) {
       const replacementNumber = remainingNumbers[0];
