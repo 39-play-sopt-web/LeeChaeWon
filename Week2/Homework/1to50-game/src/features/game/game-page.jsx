@@ -26,7 +26,29 @@ const GamePage = ({ level, startTimer, stopTimer }) => {
     }
 
     if (number === maxNumber) {
-      stopTimer();
+      const finalTime = stopTimer();
+
+      const record = {
+        playedAt: new Date().toISOString(),
+        level,
+        playTime: finalTime,
+      };
+
+      // 기존 기록 가져오기
+      const savedRecords = JSON.parse(
+        localStorage.getItem('gameRecords') || '[]',
+      );
+
+      // 기존 기록에 새 기록 추가해서 저장하기
+      localStorage.setItem(
+        'gameRecords',
+        JSON.stringify([...savedRecords, record]),
+      );
+
+      setTimeout(() => {
+        alert(`게임 완료!\n플레이 시간: ${(finalTime / 1000).toFixed(2)}초`);
+      }, 0);
+
     }
     
     // 새로 등장시킬 숫자가 남아 있다면

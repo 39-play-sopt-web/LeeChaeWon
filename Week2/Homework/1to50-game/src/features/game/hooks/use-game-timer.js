@@ -27,10 +27,17 @@ const useGameTimer = () => {
     clearInterval(intervalRef.current);
     intervalRef.current = null;
 
-    if (startTimeRef.current !== null) {
-      updateTimer();
+    if (startTimeRef.current === null) {
+      return 0;
     }
-  }, [updateTimer]);
+
+    const finalTime = Date.now() - startTimeRef.current;
+
+    setElapsedTime(finalTime)
+    startTimeRef.current = null;
+
+    return finalTime;
+  }, []);
 
   const resetTimer = useCallback(() => {
     clearInterval(intervalRef.current);
@@ -49,7 +56,6 @@ const useGameTimer = () => {
   return {
     elapsedTime,
     startTimer,
-    updateTimer,
     stopTimer,
     resetTimer,
   };
