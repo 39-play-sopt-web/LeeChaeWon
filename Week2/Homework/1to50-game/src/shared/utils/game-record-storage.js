@@ -13,9 +13,24 @@ export const saveGameRecord = (record) => {
     id: Date.now(),
     ...record,
   }
-  
+
   localStorage.setItem(
     STORAGE_KEY,
     JSON.stringify([...savedRecords, newRecord]),
   );
+};
+
+// 랭킹에 보여줄 게임 기록
+export const getRankedRecords = () => {
+  return getGameRecords().sort(
+    (a, b) =>
+      b.level - a.level ||
+      a.playTime - b.playTime ||
+      a.id - b.id,
+  );
+};
+
+// 랭킹 삭제
+export const clearGameRecords = () => {
+  localStorage.removeItem(STORAGE_KEY);
 };
