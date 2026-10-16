@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Header from './shared/components/header';
 import GamePage from './features/game/game-page';
 import useGameTimer from './features/game/hooks/use-game-timer';
+import RankingPage from './features/ranking/ranking-page';
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState('game');
@@ -21,7 +22,7 @@ const App = () => {
         elapsedTime={elapsedTime}
       />
 
-      {currentPage === 'game' && (
+      {currentPage === 'game' ? (
         <GamePage
           key={level}
           level={level}
@@ -29,6 +30,8 @@ const App = () => {
           stopTimer={stopTimer}
           resetTimer={resetTimer}
         />
+      ) : (
+        <RankingPage />
       )}
     </>
   );
