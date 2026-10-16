@@ -13,7 +13,7 @@ const App = () => {
   }, [currentPage, level, resetTimer]);
 
   return (
-    <>
+    <div className="flex h-dvh flex-col overflow-hidden">
       <Header
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
@@ -22,18 +22,20 @@ const App = () => {
         elapsedTime={elapsedTime}
       />
 
-      {currentPage === 'game' ? (
-        <GamePage
-          key={level}
-          level={level}
-          startTimer={startTimer}
-          stopTimer={stopTimer}
-          resetTimer={resetTimer}
-        />
-      ) : (
-        <RankingPage />
-      )}
-    </>
+      <div className="min-h-0 flex-1 py-10">
+        {currentPage === 'game' ? (
+          <GamePage
+            key={level}
+            level={level}
+            startTimer={startTimer}
+            stopTimer={stopTimer}
+            resetTimer={resetTimer}
+          />
+        ) : (
+          <RankingPage />
+        )}
+      </div>
+    </div>
   );
 };
 

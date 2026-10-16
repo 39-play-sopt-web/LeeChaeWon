@@ -3,14 +3,15 @@ import NumberCell from './number-cell';
 const GameBoard = ({ numbers, gridSize, onNumberClick }) => {
   return (
     <div
-      className="grid gap-2"
+      className="grid aspect-square h-full max-h-full max-w-full gap-2"
       style={{
         gridTemplateColumns: `repeat(${gridSize}, minmax(0, 1fr))`,
+        gridTemplateRows: `repeat(${gridSize}, minmax(0, 1fr))`,
       }}
     >
       {numbers.map((number, index) =>
         number === null ? (
-          <div key={index} className="aspect-square" />
+          <div key={index} className="border border-border" />
         ) : (
           <NumberCell
             key={index}

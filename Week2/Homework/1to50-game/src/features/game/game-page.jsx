@@ -22,7 +22,7 @@ const GamePage = ({ level, startTimer, stopTimer, resetTimer }) => {
 
   return (
     <>
-      <main className="mx-auto flex w-full max-w-xl flex-col items-center gap-6 px-4 py-8">
+      <main className="flex h-full min-h-0 flex-col items-center gap-4 p-4">
         <div className="flex items-center gap-2">
           <p className="text-body-01 text-text-secondary">
             다음 숫자
@@ -37,11 +37,13 @@ const GamePage = ({ level, startTimer, stopTimer, resetTimer }) => {
           </p>
         </div>
 
-        <GameBoard
-          numbers={numbers}
-          gridSize={gridSize}
-          onNumberClick={handleNumberClick}
-        />
+        <div className="flex min-h-0 w-full flex-1 items-center justify-center">
+          <GameBoard
+            numbers={numbers}
+            gridSize={gridSize}
+            onNumberClick={handleNumberClick}
+          />
+        </div>
       </main>
 
       <GameCompleteModal

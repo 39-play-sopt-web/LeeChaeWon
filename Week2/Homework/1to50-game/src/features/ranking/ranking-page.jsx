@@ -13,7 +13,7 @@ const RankingPage = () => {
   }
   return (
     <>
-      <main className="min-h-full px-6 py-8">
+      <main className="h-full overflow-y-auto px-6 py-8">
         <section className="mx-auto flex flex-col w-full max-w-3xl gap-4">
           <div className="flex items-center justify-between">
             <h2 className="text-heading-01">🏆 랭킹</h2>
