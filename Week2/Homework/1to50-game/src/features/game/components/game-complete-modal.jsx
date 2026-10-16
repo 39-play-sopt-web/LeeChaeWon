@@ -1,4 +1,5 @@
 import Modal from '@/shared/components/modal';
+import Button from '@/shared/components/button';
 
 const GameCompleteModal = ({
   isOpen,
@@ -17,13 +18,11 @@ const GameCompleteModal = ({
           플레이 시간: {(finalTime/1000).toFixed(2)}초
         </p>
 
-        <button
-          type="button"
+        <Button
           onClick={onConfirm}
-          className="rounded-lg bg-primary px-6 py-3 text-text-primary"
         >
           확인
-        </button>
+        </Button>
       </div>
 
     </Modal>

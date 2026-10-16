@@ -1,4 +1,5 @@
 import Modal from "@/shared/components/modal";
+import Button from "@/shared/components/button";
 
 const ResetConfirmModal = ({ isOpen, onClose, onConfirm }) => {
   return (
@@ -13,21 +14,19 @@ const ResetConfirmModal = ({ isOpen, onClose, onConfirm }) => {
         </p>
 
         <div className="flex justify-end gap-2">
-          <button
-            type="button"
+          <Button
+            variant='secondary'
             onClick={onClose}
-            className="rounded-lg border border-border px-6 py-3 text-text-primary"
           >
             취소
-          </button>
+          </Button>
 
-          <button
-            type="button"
+          <Button
+            variant='danger'
             onClick={onConfirm}
-            className="rounded-lg bg-primary px-6 py-3 text-text-primary"
           >
             초기화
-          </button>
+          </Button>
         </div>
       </div>
     </Modal>

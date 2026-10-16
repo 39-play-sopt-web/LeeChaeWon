@@ -1,3 +1,5 @@
+import Button from "./button";
+
 const Header = ({ currentPage, setCurrentPage, level, setLevel, elapsedTime }) => {
   return (
     <header className="flex items-center justify-between border-b border-border bg-secondary px-8 py-4">
@@ -6,29 +8,19 @@ const Header = ({ currentPage, setCurrentPage, level, setLevel, elapsedTime }) =
 
       {/* 가운데 페이지 전환 메뉴 */}
       <nav className="flex flex-1 justify-center gap-4">
-        <button
-          type="button"
+        <Button
+          variant={currentPage === 'game' ? 'primary' : 'secondary'}
           onClick={() => setCurrentPage('game')}
-          className={
-            currentPage === 'game'
-            ? 'rounded-md bg-primary text-body-01 text-text-primary p-2 whitespace-nowrap'
-            : 'rounded-md bg-secondary text-body-01 text-text-primary p-2 whitespace-nowrap'
-          }
         >
           게임
-        </button>
+        </Button>
 
-        <button
-          type="button"
+        <Button
+          variant={currentPage === 'ranking' ? 'primary' : 'secondary'}
           onClick={() => setCurrentPage('ranking')}
-          className={
-            currentPage === 'ranking'
-            ? 'rounded-md bg-primary text-body-01 text-text-primary p-2 whitespace-nowrap'
-            : 'rounded-md bg-secondary text-body-01 text-text-primary p-2 whitespace-nowrap'
-          }
         >
           랭킹
-        </button>       
+        </Button>     
       </nav>
 
       {/* 오른쪽 영역 */}
@@ -48,7 +40,7 @@ const Header = ({ currentPage, setCurrentPage, level, setLevel, elapsedTime }) =
 
             {/* 타이머 */}
             <div className="w-20 text-center rounded-md bg-primary p-2 text-body-01 text-text-primary">
-              {(elapsedTime / 1000).toFixed(2)}
+              {(elapsedTime / 1000).toFixed(2)}초
             </div>
           </div>
         )}

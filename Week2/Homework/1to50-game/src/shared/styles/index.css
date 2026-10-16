@@ -9,6 +9,8 @@
   --color-secondary: #fff3c4;
   --color-background: #fffbea;
   --color-surface: #ffffff;
+  --color-danger: #dc2626;
+  --color-danger-hover: #fee2e2;
   --color-text-primary: #0f172a;
   --color-text-secondary: #64748b;
   --color-border: #e2e8f0;
@@ -24,4 +26,8 @@
 
   --text-caption-01: 12px;
   --text-caption-01--font-weight: 400;
+}
+
+body {
+  @apply bg-background;
 }

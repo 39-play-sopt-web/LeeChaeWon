@@ -2,6 +2,7 @@ import { useState } from 'react';
 import RankingTable from './components/ranking-table';
 import { clearGameRecords } from '@/shared/utils/game-record-storage';
 import ResetConfirmModal from './components/reset-confirm-modal';
+import Button from '@/shared/components/button';
 
 const RankingPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,13 +18,12 @@ const RankingPage = () => {
           <div className="flex items-center justify-between">
             <h2 className="text-heading-01">🏆 랭킹</h2>
 
-            <button
-              type="button"
+            <Button
+              variant='danger'
               onClick={() => setIsModalOpen(true)}
-              className="rounded-md border border-primary px-3 py-1.5 text-text-primary text-caption-01 transition-colors hover:bg-primary"
             >
               초기화
-            </button>
+            </Button>
           </div>
 
           <RankingTable />
