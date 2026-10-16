@@ -3,9 +3,9 @@ import Button from "@/shared/components/button";
 
 const ResetConfirmModal = ({ isOpen, onClose, onConfirm }) => {
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={isOpen} onClose={onClose} titleId="reset-modal-title">
       <div className="flex flex-col items-center gap-2">
-        <h2 className="text-heading-01 text-text-primary">
+        <h2 id="reset-modal-title" className="text-heading-01 text-text-primary">
           기록 초기화
         </h2>
 

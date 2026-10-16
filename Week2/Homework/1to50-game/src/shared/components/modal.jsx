@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom';
 
-const Modal = ({isOpen, onClose, children}) => {
+const Modal = ({isOpen, onClose, titleId, children}) => {
   if(!isOpen) {
     return null;
   }
@@ -13,6 +13,7 @@ const Modal = ({isOpen, onClose, children}) => {
       <div
         role="dialog"
         aria-modal="true"
+        aria-labelledby={titleId}
         className="w-full max-w-sm rounded-xl bg-surface p-6"
         onClick={(event) => event.stopPropagation()}
       >
