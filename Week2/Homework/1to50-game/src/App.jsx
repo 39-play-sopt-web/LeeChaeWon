@@ -3,9 +3,10 @@ import Header from './shared/components/header';
 import GamePage from './features/game/game-page';
 import useGameTimer from './features/game/hooks/use-game-timer';
 import RankingPage from './features/ranking/ranking-page';
+import { PAGES } from './shared/constants/page';
 
 const App = () => {
-  const [currentPage, setCurrentPage] = useState('game');
+  const [currentPage, setCurrentPage] = useState(PAGES.GAME);
   const [level, setLevel] = useState(1);
   const { elapsedTime, startTimer, stopTimer, resetTimer } = useGameTimer();
   useEffect(() => {
@@ -23,7 +24,7 @@ const App = () => {
       />
 
       <div className="min-h-0 flex-1 py-10">
-        {currentPage === 'game' ? (
+        {currentPage === PAGES.GAME ? (
           <GamePage
             key={level}
             level={level}
