@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { GAME_CONFIG } from '../constants/game-config';
 import createNumbers from '../utils/create-numbers';
+import { saveGameRecord } from '@/shared/utils/game-record-storage';
 
 const useGame = (level, startTimer, stopTimer, resetTimer) => { 
   const { gridSize, maxNumber } = GAME_CONFIG[level];
@@ -37,16 +38,7 @@ const useGame = (level, startTimer, stopTimer, resetTimer) => {
         playTime: completedTime,
       };
 
-      // 기존 기록 가져오기
-      const savedRecords = JSON.parse(
-        localStorage.getItem('gameRecords') || '[]',
-      );
-
-      // 기존 기록에 새 기록 추가해서 저장하기
-      localStorage.setItem(
-        'gameRecords',
-        JSON.stringify([...savedRecords, record]),
-      );
+      saveGameRecord(record);
 
     /* setTimeout(() => {
         alert(`게임 완료!\n플레이 시간: ${(finalTime / 1000).toFixed(2)}초`);
