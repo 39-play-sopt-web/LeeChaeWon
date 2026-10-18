@@ -1,0 +1,50 @@
+.likes__banner {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.likes__track {
+  display: flex;
+  width: max-content;
+  animation: likes-slide 20s linear infinite;
+}
+
+.likes__group {
+  display: flex;
+  flex-shrink: 0;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+
+.likes__track:hover {
+  animation-play-state: paused;
+}
+
+.likes__track img {
+  flex: 0 0 15rem;
+  height: 15rem;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  transition: transform 0.3s ease;
+}
+
+.likes__track img:hover {
+  transform: scale(1.05);
+}
+
+@keyframes likes-slide {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50%));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .likes__track {
+    animation: none;
+  }
+}
