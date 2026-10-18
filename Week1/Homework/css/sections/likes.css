@@ -7,8 +7,14 @@
 .likes__track {
   display: flex;
   width: max-content;
-  gap: 1rem;
   animation: likes-slide 20s linear infinite;
+}
+
+.likes__group {
+  display: flex;
+  flex-shrink: 0;
+  gap: 1rem;
+  padding-right: 1rem;
 }
 
 .likes__track:hover {
@@ -34,5 +40,11 @@
 
   to {
     transform: translateX(calc(-50%));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .likes__track {
+    animation: none;
   }
 }
