@@ -1,10 +1,8 @@
-function App() {
+import { RouterProvider } from 'react-router-dom';
+import { router } from '@/routes/router';
 
-  return (
-    <div>
-      영화 탐색 페이지
-    </div>
-  )
-}
+const App = () => {
+  return <RouterProvider router={router} />;
+};
 
-export default App
+export default App;

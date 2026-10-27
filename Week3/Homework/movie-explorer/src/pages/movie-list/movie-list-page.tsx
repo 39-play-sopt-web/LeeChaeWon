@@ -1,0 +1,5 @@
+const MovieListPage = () => {
+  return <h1>영화 목록 페이지</h1>;
+};
+
+export default MovieListPage;
