@@ -1,16 +1,25 @@
-import { useState } from 'react';
 import MovieCard from './components/movie-card/movie-card';
 import RatingFilter from './components/rating-filter/rating-filter';
-import type { RatingFilterValue } from './constants/rating-filter';
-import { filterMoviesByRating } from './utils/filter-movies-by-rating.ts';
-import * as styles from './movie-list-page.css';
-import { useMovieList } from './hooks/use-movie-list';
+import { useInfiniteScroll } from './hooks/use-infinite-scroll.ts';
+import { useMovieList } from './hooks/use-movie-list.ts';
+import * as styles from './movie-list-page.css.ts';
 
 const MovieListPage = () => {
-  const [ratingFilter, setRatingFilter] =
-    useState<RatingFilterValue>('all');
-  const { movies, isLoading, isError } = useMovieList();
-  const filteredMovies = filterMoviesByRating(movies, ratingFilter);
+  const {
+    movies,
+    ratingFilter,
+    setRatingFilter,
+    isLoading,
+    isFetchingMore,
+    isError,
+    hasMore,
+    loadMore,
+  } = useMovieList();
+
+  const loadMoreRef = useInfiniteScroll({
+    onIntersect: loadMore,
+    enabled: hasMore && !isLoading && !isFetchingMore && !isError,
+  });
 
   return (
     <main className={styles.page}>
@@ -18,19 +27,32 @@ const MovieListPage = () => {
 
       <RatingFilter value={ratingFilter} onChange={setRatingFilter} />
 
-      {isLoading && <p>불러오는 중...</p>}
-      {isError && <p>영화 목록을 불러오지 못했어요</p>}
-      {!isLoading && !isError && filteredMovies.length === 0 && (
-        <p>해당 평점대의 영화가 없어요</p>
+      {isLoading && movies.length === 0 && <p>불러오는 중...</p>}
+
+      {isError && (
+        <p>영화 목록을 불러오지 못했어요.</p>
+      )}
+
+      {!isLoading && !isError && movies.length === 0 && (
+        <p>해당 평점대의 영화가 없어요.</p>
       )}
 
       <ul className={styles.movieList}>
-        {filteredMovies.map((movie) => (
+        {movies.map((movie) => (
           <li key={movie.id}>
             <MovieCard {...movie} />
           </li>
         ))}
       </ul>
+
+      {isFetchingMore && <p>더 불러오는 중...</p>}
+
+      {hasMore && (
+        <div
+          ref={loadMoreRef}
+          aria-hidden="true"
+        />
+      )}
     </main>
   );
 };
