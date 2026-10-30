@@ -8,5 +8,4 @@ export const httpClient = ky.create({
   headers: {
     Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`
   },
-  retry: 0,
 })
