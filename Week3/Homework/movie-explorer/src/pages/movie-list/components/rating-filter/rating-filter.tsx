@@ -1,15 +1,5 @@
+import { RATING_FILTERS, type RatingFilterValue } from '../../constants/rating-filter'
 import * as styles from './rating-filter.css';
-
-const RATING_FILTERS = [
-  { label: '전체', value: 'all' },
-  { label: '9점 이상', value: '9+' },
-  { label: '8 ~ 9점', value: '8-9' },
-  { label: '7 ~ 8점', value: '7-8' },
-  { label: '6 ~ 7점', value: '6-7' },
-  { label: '6점 미만', value: 'under-6' },
-] as const;
-
-export type RatingFilterValue = (typeof RATING_FILTERS)[number]['value'];
 
 interface RatingFilterProps {
   value: RatingFilterValue;
