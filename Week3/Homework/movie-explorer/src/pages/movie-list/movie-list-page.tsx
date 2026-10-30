@@ -1,34 +1,15 @@
-import { useEffect, useState } from 'react';
-import { getMovieList } from './api/get-movie-list';
+import { useState } from 'react';
 import MovieCard from './components/movie-card/movie-card';
 import RatingFilter from './components/rating-filter/rating-filter';
 import type { RatingFilterValue } from './constants/rating-filter';
-import type { MovieListItem } from './types/movie-list';
 import { filterMoviesByRating } from './utils/filter-movies-by-rating.ts';
 import * as styles from './movie-list-page.css';
+import { useMovieList } from './hooks/use-movie-list';
 
 const MovieListPage = () => {
   const [ratingFilter, setRatingFilter] =
     useState<RatingFilterValue>('all');
-  const [movies, setMovies] = useState<MovieListItem[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
-
-  useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const data = await getMovieList();
-        setMovies(data.results);
-      } catch {
-        setIsError(true);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchMovies();
-  }, []);
-
+  const { movies, isLoading, isError } = useMovieList();
   const filteredMovies = filterMoviesByRating(movies, ratingFilter);
 
   return (
