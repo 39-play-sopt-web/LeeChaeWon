@@ -84,5 +84,6 @@ export const overview = style([
     color: vars.color.textPrimary,
     WebkitBoxOrient: 'vertical',
     WebkitLineClamp: 3,
+    minHeight: '3lh'
   },
 ]);

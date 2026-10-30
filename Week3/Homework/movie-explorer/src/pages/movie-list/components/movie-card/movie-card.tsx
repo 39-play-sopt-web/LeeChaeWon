@@ -44,8 +44,8 @@ const MovieCard = ({
 
         <div className={styles.info}>
           <h2 className={styles.title}>{title}</h2>
-          <p className={styles.releaseDate}>{release_date}</p>
-          <p className={styles.overview}>{overview}</p>
+          <p className={styles.releaseDate}>{release_date || '개봉일 정보가 없어요'}</p>
+          <p className={styles.overview}>{overview || '줄거리 정보가 없어요'}</p>
         </div>
       </article>
     </Link>
