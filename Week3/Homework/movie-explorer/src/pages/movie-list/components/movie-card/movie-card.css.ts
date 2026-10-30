@@ -5,7 +5,6 @@ import { typography } from '@/shared/styles/typography.css';
 export const card = style({
   display: 'block',
   overflow: 'hidden',
-  maxWidth: '200px',
   borderRadius: vars.radius.lg,
   backgroundColor: vars.color.surface,
   textDecoration: 'none',
@@ -26,13 +25,24 @@ export const card = style({
 export const poster = style({
   position: 'relative',
   overflow: 'hidden',
+  aspectRatio: '2 / 3',
 });
 
 export const posterImage = style({
   display: 'block',
   width: '100%',
-  aspectRatio: '2 / 3',
+  height: '100%',
   objectFit: 'cover',
+});
+
+export const posterPlaceholder = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '100%',
+  height: '100%',
+  backgroundColor: vars.color.secondary,
+  color: vars.color.textSecondary,
 });
 
 export const rating = style({

@@ -30,8 +30,12 @@ const MovieCard = ({
     <Link to={getMovieDetailPath(id)} className={styles.card}>
       <article>
         <div className={styles.poster}>
-          {poster_path && (
+          {poster_path ? (
             <img className={styles.posterImage} src={getMovieImageUrl(poster_path)} alt={`${title} 포스터`} />
+          ) : (
+            <div className={styles.posterPlaceholder}>
+              <span>포스터 이미지 없음</span>
+            </div>
           )}
           <span className={styles.rating}>
             <Chip variant="rating">★{vote_average.toFixed(1)}</Chip>
