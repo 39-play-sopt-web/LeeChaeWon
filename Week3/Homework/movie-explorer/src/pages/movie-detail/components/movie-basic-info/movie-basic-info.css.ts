@@ -5,7 +5,7 @@ import { typography } from '@/shared/styles/typography.css';
 export const basicInfo = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: vars.spacing.lg,
+  gap: vars.spacing.md,
 });
 
 export const title = style([
@@ -18,6 +18,7 @@ export const title = style([
 export const cardList = style({
   display: 'grid',
   gridTemplateColumns: 'repeat(auto-fit, minmax(12rem, 1fr))',
+  gridAutoRows: '1fr',
   gap: vars.spacing.md,
 });
 
@@ -32,14 +33,14 @@ export const card = style({
 });
 
 export const label = style([
-  typography.body01,
+  typography.caption01,
   {
     color: vars.color.textPrimary,
   },
 ]);
 
 export const value = style([
-  typography.caption01,
+  typography.body01,
   {
     color: vars.color.textPrimary,
     overflowWrap: 'anywhere',
