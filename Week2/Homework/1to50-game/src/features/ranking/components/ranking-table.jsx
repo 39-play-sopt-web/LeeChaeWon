@@ -1,4 +1,4 @@
-import { getRankedRecords } from "@/shared/utils/game-record-storage";
+import { getRankedRecords } from "../utils/get-ranked-records"
 
 const RankingTable = () => {
   const records = getRankedRecords();
