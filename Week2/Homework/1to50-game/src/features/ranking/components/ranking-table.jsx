@@ -1,5 +1,10 @@
 import { getRankedRecords } from "../utils/get-ranked-records"
 
+const formatDate = (iso) =>
+  new Date(iso).toLocaleString('ko-KR', {
+    timeZone: 'Asia/Seoul',
+  });
+
 const RankingTable = () => {
   const records = getRankedRecords();
 
@@ -39,7 +44,7 @@ const RankingTable = () => {
               <td className="px-3 py-2">
                 {(record.playTime / 1000).toFixed(2)}초
               </td>
-              <td className="px-3 py-2">{record.playedAt}</td>
+              <td className="px-3 py-2">{formatDate(record.playedAt)}</td>
             </tr>
           ))}
         </tbody>
