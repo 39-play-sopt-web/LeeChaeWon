@@ -33,7 +33,7 @@ const useGameTimer = () => {
 
     const finalTime = Date.now() - startTimeRef.current;
 
-    setElapsedTime(finalTime)
+    setElapsedTime(finalTime);
     startTimeRef.current = null;
 
     return finalTime;
