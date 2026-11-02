@@ -2,7 +2,27 @@ const STORAGE_KEY = 'gameRecords';
 
 // 저장된 게임 기록 조회
 export const getGameRecords = () => {
-  return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+  try {
+    const records = JSON.parse(
+      localStorage.getItem(STORAGE_KEY) || '[]',
+    );
+
+    if (!Array.isArray(records)) {
+      throw new Error('잘못된 게임 기록 형식입니다.');
+    }
+
+    return {
+      records,
+      error: null,
+    };
+  } catch (error) {
+    console.error('게임 기록을 불러오지 못했습니다.', error);
+
+    return {
+      records: [],
+      error: '게임 기록을 불러오지 못했어요.',
+    };
+  }
 };
 
 // 새로운 게임 기록 저장

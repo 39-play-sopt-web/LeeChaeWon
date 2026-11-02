@@ -6,7 +6,15 @@ const formatDate = (iso) =>
   });
 
 const RankingTable = () => {
-  const records = getRankedRecords();
+  const { records, error } = getRankedRecords();
+
+  if (error) {
+    return (
+      <p className="py-10 text-center text-body-01 text-text-secondary">
+        {error}
+      </p>
+    )
+  }
 
   if (records.length === 0) {
     return (
