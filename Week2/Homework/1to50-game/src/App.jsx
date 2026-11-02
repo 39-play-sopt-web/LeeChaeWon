@@ -4,14 +4,24 @@ import GamePage from './features/game/game-page';
 import useGameTimer from './features/game/hooks/use-game-timer';
 import RankingPage from './features/ranking/ranking-page';
 import { PAGES } from './shared/constants/page';
+import { saveGameRecord } from './shared/utils/game-record-storage';
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState(PAGES.GAME);
   const [level, setLevel] = useState(1);
   const { elapsedTime, startTimer, stopTimer, resetTimer } = useGameTimer();
+
   useEffect(() => {
     resetTimer();
   }, [currentPage, level, resetTimer]);
+
+  const handleSaveRecord = (playTime) => {
+    saveGameRecord({
+      playedAt: new Date().toISOString(),
+      level,
+      playTime,
+    });
+  };
 
   return (
     <div className="flex h-dvh flex-col overflow-hidden">
@@ -31,6 +41,7 @@ const App = () => {
             startTimer={startTimer}
             stopTimer={stopTimer}
             resetTimer={resetTimer}
+            saveRecord={handleSaveRecord}
           />
         ) : (
           <RankingPage />

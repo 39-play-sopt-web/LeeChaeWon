@@ -27,16 +27,16 @@ export const getGameRecords = () => {
 
 // 새로운 게임 기록 저장
 export const saveGameRecord = (record) => {
-  const savedRecords = getGameRecords();
+  const { records } = getGameRecords();
 
   const newRecord = {
     id: Date.now(),
     ...record,
-  }
+  };
 
   localStorage.setItem(
     STORAGE_KEY,
-    JSON.stringify([...savedRecords, newRecord]),
+    JSON.stringify([...records, newRecord]),
   );
 };
 

@@ -1,32 +1,49 @@
+import { useState } from 'react';
 import GameBoard from './components/game-board';
 import useGame from './hooks/use-game';
 import GameCompleteModal from './components/game-complete-modal';
 
-const GamePage = ({ level, startTimer, stopTimer, resetTimer }) => {
+const GamePage = ({
+  level,
+  startTimer,
+  stopTimer,
+  resetTimer,
+  saveRecord,
+}) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [finalTime, setFinalTime] = useState(0);
+
+  const handleGameComplete = () => {
+    const completedTime = stopTimer();
+
+    setFinalTime(completedTime);
+    setIsModalOpen(true);
+    saveRecord(completedTime);
+  };
+
   const {
     gridSize,
     maxNumber,
     nextNumber,
     numbers,
     handleNumberClick,
-    isModalOpen,
-    finalTime,
-    closeModal,
     resetGame,
-  } = useGame(level, startTimer, stopTimer, resetTimer)
+  } = useGame(level, {
+    onStart: startTimer,
+    onComplete: handleGameComplete,
+  });
 
   const handleModalConfirm = () => {
     resetGame();
-    closeModal();
-  }
+    resetTimer();
+    setIsModalOpen(false);
+  };
 
   return (
     <>
       <main className="flex h-full min-h-0 flex-col items-center gap-4 p-4">
         <div className="flex items-center gap-2">
-          <p className="text-body-01 text-text-secondary">
-            다음 숫자
-          </p>
+          <p className="text-body-01 text-text-secondary">다음 숫자</p>
 
           <p className="text-heading-01 text-text-primary">
             {nextNumber > maxNumber ? '완료!' : nextNumber}
@@ -52,7 +69,6 @@ const GamePage = ({ level, startTimer, stopTimer, resetTimer }) => {
         onConfirm={handleModalConfirm}
       />
     </>
-
   );
 };
 
