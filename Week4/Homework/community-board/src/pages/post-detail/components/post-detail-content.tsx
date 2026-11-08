@@ -4,6 +4,8 @@ import type { Post } from '@shared/types/post';
 interface PostDetailContentProps {
   post: Post;
   onEdit: () => void;
+  onDelete: () => void;
+  isDeleting: boolean;
 }
 
 const formatDate = (date: string) => {
@@ -21,7 +23,7 @@ const formatDate = (date: string) => {
   }).format(parsed);
 };
 
-const PostDetailContent = ({ post, onEdit }: PostDetailContentProps) => (
+const PostDetailContent = ({ post, onEdit, onDelete, isDeleting }: PostDetailContentProps) => (
   <article className="flex flex-col gap-5 rounded-xl border border-border bg-surface p-6">
     <header className="flex flex-col gap-3 border-b border-border pb-4">
       <h1 className="text-heading-01 text-text-primary">{post.title}</h1>
@@ -35,7 +37,9 @@ const PostDetailContent = ({ post, onEdit }: PostDetailContentProps) => (
     </p>
     <div className="flex justify-end gap-3 border-t border-border pt-4">
       <Button type="button" fullWidth={false} onClick={onEdit}>수정</Button>
-      <Button type="button" fullWidth={false}>삭제</Button>
+      <Button type="button" variant="secondary" fullWidth={false} disabled={isDeleting} onClick={onDelete}>
+        {isDeleting ? '삭제 중...' : '삭제'}
+      </Button>
     </div>
   </article>
 );

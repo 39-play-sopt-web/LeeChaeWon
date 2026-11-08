@@ -4,6 +4,7 @@ import Button from '@shared/components/button';
 import { PATH } from '@app/router/path';
 import { usePost } from './hooks/use-post';
 import { useUpdatePost } from './hooks/use-update-post';
+import { useDeletePost } from './hooks/use-delete-post';
 import PostDetailContent from './components/post-detail-content';
 import PostEditForm from './components/post-edit-form';
 
@@ -13,6 +14,7 @@ const PostDetailPage = () => {
   const navigate = useNavigate();
   const postQuery = usePost(postId);
   const updateMutation = useUpdatePost(postId);
+  const deleteMutation = useDeletePost(postId);
   const [isEditing, setIsEditing] = useState(false);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
@@ -61,6 +63,17 @@ const PostDetailPage = () => {
     );
   };
 
+  const handleDelete = () => {
+    if (!window.confirm('게시글을 삭제하시겠습니까?')) return;
+
+    deleteMutation.mutate(undefined, {
+      onSuccess: () => navigate(PATH.postList, { replace: true }),
+      onError: (error) => {
+        window.alert(error instanceof Error ? error.message : '게시글 삭제에 실패했습니다.');
+      },
+    });
+  };
+
   return (
     <section className="mx-auto flex w-full max-w-3xl flex-col gap-5 px-5 py-8">
       <Button
@@ -84,7 +97,12 @@ const PostDetailPage = () => {
           onSubmit={handleUpdate}
         />
       ) : (
-        <PostDetailContent post={post} onEdit={startEditing} />
+        <PostDetailContent
+          post={post}
+          onEdit={startEditing}
+          onDelete={handleDelete}
+          isDeleting={deleteMutation.isPending}
+        />
       )}
     </section>
   );
