@@ -1,5 +1,5 @@
 import { createBrowserRouter, redirect } from 'react-router-dom';
-import BoardLayout from '@app/layout/layout';
+import BoardLayout from '@app/layout/board-layout';
 import MemberCodePage from '@pages/member-code/member-code-page';
 import PostListPage from '@pages/post-list/post-list-page';
 import PostWritePage from '@pages/post-write/post-write-page';

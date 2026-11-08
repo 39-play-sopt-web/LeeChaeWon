@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import BoardHeader from '@shared/components/board-header';
 
-export default function BoardLayout() {
+const BoardLayout = () => {
   return (
     <>
       <BoardHeader />
@@ -10,4 +10,6 @@ export default function BoardLayout() {
       </main>
     </>
   );
-}
+};
+
+export default BoardLayout;
