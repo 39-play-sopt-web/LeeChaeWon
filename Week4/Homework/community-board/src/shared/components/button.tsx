@@ -22,7 +22,7 @@ const Button = ({
   return (
     <button
       {...buttonProps}
-      className={`rounded-lg px-4 py-3 text-body-02 transition-colors duration-200 ${
+      className={`whitespace-nowrap rounded-lg px-4 py-3 text-body-02 transition-colors duration-200 ${
         fullWidth ? 'w-full' : ''
       } ${variantStyle[variant]} ${
         buttonProps.disabled ? 'cursor-not-allowed opacity-50' : ''
