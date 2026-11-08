@@ -6,7 +6,9 @@
 
   /* 색상 */
   --color-primary: #f9d86d;
+  --color-primary-hover: #f2cf5b;
   --color-secondary: #fff3c4;
+  --color-secondary-hover: #f7e9b4;
   --color-background: #fffbea;
   --color-surface: #ffffff;
   --color-text-primary: #0f172a;
