@@ -2,7 +2,7 @@ import { createBrowserRouter, redirect } from 'react-router-dom';
 import BoardLayout from '@app/layout/layout';
 import MemberCodePage from '@pages/member-code/member-code-page';
 import PostListPage from '@pages/post-list/post-list-page';
-import PostWritePage from '@pages/post-write/post-write';
+import PostWritePage from '@pages/post-write/post-write-page';
 import PostDetailPage from '@pages/post-detail/post-detail';
 import { PATH } from './path';
 
