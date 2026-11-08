@@ -1,10 +1,10 @@
-const PARTS = ['WEB', 'iOS', 'ANDROID'] as const;
+import type { MemberPart } from '../types/member';
 
-type Part = (typeof PARTS)[number];
+const PARTS: MemberPart[] = ['WEB', 'iOS', 'ANDROID'];
 
 interface PartSelectorProps {
-  value: Part | '';
-  onChange: (part: Part | '') => void;
+  value: MemberPart | '';
+  onChange: (part: MemberPart | '') => void;
 }
 
 const PartSelector = ({ value, onChange }: PartSelectorProps) => {

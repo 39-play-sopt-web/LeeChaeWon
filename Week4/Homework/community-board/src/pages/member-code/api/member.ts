@@ -1,7 +1,6 @@
 import { http } from '@shared/api/http';
 import { API_ENDPOINTS } from '@shared/api/endpoints';
-
-export type MemberPart = 'WEB' | 'iOS' | 'ANDROID';
+import type { MemberPart } from '../types/member';
 
 interface IssueAuthorizationCodeRequest {
   part: MemberPart;

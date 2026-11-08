@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { PATH } from '@app/router/path';
-import { issueAuthorizationCode, type MemberPart } from '../api/member';
+import { issueAuthorizationCode } from '../api/member';
+import type { MemberPart } from '../types/member';
 
 export const useIssueAuthorizationCode = () => {
   const navigate = useNavigate();
