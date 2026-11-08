@@ -16,6 +16,7 @@ const MemberCodePage = () => {
     mutationFn: issueAuthorizationCode,
     onSuccess: (authorizationCode) => {
       localStorage.setItem('authorizationCode', authorizationCode);
+      localStorage.setItem('selectedPart', selectedPart);
       navigate(PATH.postList);
     },
   });
