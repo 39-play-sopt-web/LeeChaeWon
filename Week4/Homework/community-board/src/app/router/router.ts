@@ -1,6 +1,6 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, redirect } from 'react-router-dom';
 import BoardLayout from '@app/layout/layout';
-import MemberCodePage from '@pages/member-code/member-code';
+import MemberCodePage from '@pages/member-code/member-code-page';
 import PostListPage from '@pages/post-list/post-list';
 import PostWritePage from '@pages/post-write/post-write';
 import PostDetailPage from '@pages/post-detail/post-detail';
@@ -13,6 +13,14 @@ export const router = createBrowserRouter([
   },
   {
     Component: BoardLayout,
+    loader: () => {
+      if (!localStorage.getItem('authorizationCode')) {
+        window.alert('게시판을 이용하려면 먼저 회원 코드를 발급해 주세요.');
+        return redirect(PATH.memberCode);
+      }
+
+      return null;
+    },
     children: [
       { path: PATH.postList, Component: PostListPage },
       { path: PATH.postWrite, Component: PostWritePage },
