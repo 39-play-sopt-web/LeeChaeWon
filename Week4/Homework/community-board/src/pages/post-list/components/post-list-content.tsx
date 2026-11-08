@@ -1,7 +1,7 @@
 import type { RefObject } from 'react';
 import Button from '@shared/components/button';
 import PostCard from './post-card';
-import type { Post } from '../types/post';
+import type { Post } from '@shared/types/post';
 
 interface PostListContentProps {
   posts: Post[];

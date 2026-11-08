@@ -1,6 +1,6 @@
 import { API_ENDPOINTS } from '@shared/api/endpoints';
 import { http } from '@shared/api/http';
-import type { Post } from '@pages/post-list/types/post';
+import type { Post } from '@shared/types/post';
 
 export interface CreatePostRequest {
   title: string;

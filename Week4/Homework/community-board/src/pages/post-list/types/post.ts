@@ -1,12 +1,4 @@
-export interface Post {
-  id: number;
-  title: string;
-  content: string;
-  author: string;
-  createdAt: string;
-  updatedAt: string;
-}
-
+import type { Post } from '@shared/types/post';
 export interface PostListData {
   posts: Post[];
   nextCursor: number | null;

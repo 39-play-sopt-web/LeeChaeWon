@@ -1,14 +1,16 @@
 import { generatePath, Link } from 'react-router-dom';
 import { PATH } from '@app/router/path';
-import type { Post } from '../types/post';
+import type { Post } from '@shared/types/post';
 
 interface PostCardProps {
   post: Post;
 }
 
 const formatDate = (date: string) => {
-  const parsed = new Date(date);
+  const parsed = new Date(`${date}Z`);
+
   if (Number.isNaN(parsed.getTime())) return date;
+
   return new Intl.DateTimeFormat('ko-KR', {
     timeZone: 'Asia/Seoul',
     year: 'numeric',

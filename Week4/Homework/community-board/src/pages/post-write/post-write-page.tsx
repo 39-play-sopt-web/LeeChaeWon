@@ -2,7 +2,7 @@ import { useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '@shared/components/button';
 import { PATH } from '@app/router/path';
-import FormField from './components/form-field';
+import FormField from '@shared/components/form-field';
 import { useCreatePost } from './hooks/use-create-post';
 
 type Step = 0 | 1 | 2;
