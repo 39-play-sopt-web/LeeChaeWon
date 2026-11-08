@@ -1,10 +1,36 @@
-import ky from 'ky';
+import kyInstance from './ky-instance';
+export interface ApiResponse<T> {
+  isSuccess: boolean;
+  code: string;
+  message: string;
+  data: T;
+}
 
-const http = ky.create({
-  prefix: import.meta.env.VITE_API_BASE_URL,
-  retry: {
-    limit: 0,
+export const http = {
+  get<T>(
+    url: string,
+    searchParams?: Record<string, string | number | undefined>,
+  ) {
+    return kyInstance
+      .get(url, { searchParams })
+      .json<ApiResponse<T>>();
   },
-});
 
-export default http;
+  post<TResponse, TBody>(url: string, body: TBody) {
+    return kyInstance
+      .post(url, { json: body })
+      .json<ApiResponse<TResponse>>();
+  },
+
+  put<TResponse, TBody>(url: string, body: TBody) {
+    return kyInstance
+      .put(url, { json: body })
+      .json<ApiResponse<TResponse>>();
+  },
+
+  delete<T>(url: string) {
+    return kyInstance
+      .delete(url)
+      .json<ApiResponse<T>>();
+  },
+};
